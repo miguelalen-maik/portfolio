@@ -1,0 +1,70 @@
+/* Single entry point. Import once from the future application's root. */
+@import url('./tokens.css');
+@import url('./themes.css');
+@import url('./typography.css');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--text-primary);
+  background-color: var(--background-canvas);
+  font: var(--type-body);
+  letter-spacing: var(--tracking-default);
+  font-feature-settings: var(--font-features-body);
+  font-variation-settings: var(--font-variations);
+  font-synthesis: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+/* PAGE TRANSITIONS — START */
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: page-out 180ms ease-out both;
+}
+
+::view-transition-new(root) {
+  animation: page-in 320ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+@keyframes page-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}
+
+/* PAGE TRANSITIONS — END */

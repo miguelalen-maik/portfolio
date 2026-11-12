@@ -1,0 +1,146 @@
+/* Case composition; header, navigation and sticky/overlap layers reuse Home. */
+.case-hero {
+  min-height: calc(600px - 12.5px - var(--space-4) - var(--line-height-body) - 2 * var(--space-8));
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: var(--space-48) var(--layout-gutter) calc(var(--space-64) + var(--space-32));
+}
+.case-hero-inner { width: 100%; max-width: 700px; display: grid; gap: var(--space-48); }
+.case-heading { display: grid; justify-items: start; gap: var(--space-24); }
+.case-label { background: var(--surface-tertiary); }
+.case-title { font: var(--type-h2-medium); font-feature-settings: var(--font-features-default); }
+.case-metadata { margin: 0; display: grid; gap: var(--space-24); }
+.case-metadata > div { min-width: 0; display: grid; align-content: start; gap: var(--space-4); }
+.case-metadata dt { font: var(--type-label); color: var(--text-secondary); }
+.case-metadata dd { margin: 0; font: var(--type-body-small); font-feature-settings: var(--font-features-default); }
+.case-metadata ul { list-style: none; margin: 0; padding: 0; }
+.case-metadata li { display: inline; }
+.case-metadata li + li::before { content: ' · '; }
+/* Reuse .works' opening gradient and layer order; the decoration cannot catch input. */
+.case-content { background: none; display: block; padding: 0; }
+.case-content::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to bottom, transparent, var(--background-primary) var(--layout-section-space));
+  pointer-events: none;
+}
+.case-product { padding: var(--layout-section-space) var(--layout-gutter) var(--space-48); }
+.case-product picture, .case-product img { display: block; width: 100%; }
+.case-product img { height: auto; border-radius: var(--radius-small); }
+.case-sections { background: var(--background-primary); padding: var(--space-64) var(--space-18); display: grid; gap: var(--space-64); }
+.case-block { display: grid; gap: var(--space-24); }
+.case-block h2 { font: var(--type-h2-medium); font-feature-settings: var(--font-features-default); }
+.case-copy { min-width: 0; font: var(--type-body-big); font-feature-settings: var(--font-features-default); }
+.case-copy p + p { margin-top: var(--line-height-body-big); }
+.case-diagrams { width: 100%; max-width: 1354.797px; margin-inline: auto; display: grid; gap: var(--space-64); padding: var(--space-24) var(--space-16); background: var(--surface-tertiary); border-radius: var(--radius-large); }
+.case-diagram { min-width: 0; display: grid; gap: var(--space-24); align-content: start; }
+.case-diagram img { width: 100%; height: auto; display: block; }
+.case-diagrams .case-diagrams-desktop { display: none; }
+.case-diagram figcaption { font: var(--type-body); }
+.case-diagram h3 { font: inherit; }
+.case-diagram p { color: var(--text-secondary); }
+@media (min-width: 48rem) {
+  .case-product picture { max-width: 700px; margin-inline: auto; }
+}
+@media (min-width: 64rem) {
+  .case-hero { min-height: calc(700px - 12.5px - var(--space-4) - var(--line-height-body) - 2 * var(--space-12)); }
+  .case-title { font: var(--type-h1-medium); line-height: 1.1; }
+  .case-metadata { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-12); }
+  .case-metadata > div { gap: var(--space-12); }
+  .case-metadata dd { font: var(--type-body); font-feature-settings: var(--font-features-body); }
+  .case-metadata li { display: block; }
+  .case-metadata li + li::before { content: none; }
+  .case-product { padding-bottom: var(--space-18); }
+  .case-product picture { max-width: none; }
+  .case-block { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--layout-gap); }
+  .case-copy { font: var(--type-h2); }
+  .case-copy p + p { margin-top: var(--line-height-h2); }
+  .case-diagrams { grid-template-columns: minmax(0, 484fr) minmax(0, 646.797fr); gap: var(--space-48) var(--space-128); padding: var(--space-48); }
+  .case-diagrams .case-diagrams-desktop { display: block; grid-column: 1 / -1; width: 100%; height: auto; }
+  .case-diagram > img { display: none; }
+  .case-diagram figcaption { font: var(--type-body-big); font-feature-settings: var(--font-features-default); }
+  .case-diagram h3 { font-weight: var(--font-weight-medium); }
+}
+
+/* Apparell continuation: profile research and MVP chapters. */
+.case-problems { padding: var(--space-24) var(--space-18); background: var(--surface-secondary); }
+.case-section-title { padding-block: var(--space-24); font: var(--type-h2-medium); font-feature-settings: var(--font-features-default); text-align: center; }
+.case-profile-grid { display: grid; gap: var(--space-12); margin-top: var(--space-12); }
+.case-profile { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-12); padding-block: var(--space-12); }
+.case-profile-image { display: block; width: 100%; height: 280px; object-fit: cover; }
+.case-profile-label { background: var(--surface-tertiary); font-weight: var(--font-weight-regular); }
+.case-profile:not(:first-child) .case-profile-label { width: 100%; text-align: center; }
+.case-profile-intro { font: var(--type-body); color: var(--text-secondary); }
+.case-pains { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--space-12); width: 100%; }
+.case-pains li { display: flex; align-items: center; gap: var(--space-12); padding-inline: var(--space-6); min-width: 0; font: var(--type-body-small); font-feature-settings: var(--font-features-default); }
+.case-pains img { display: block; flex-shrink: 0; }
+.case-mvp { padding: var(--space-48) var(--space-18); background: var(--background-primary); }
+.mvp-track { margin-top: var(--space-64); }
+.mvp-sticky { display: grid; gap: var(--space-64); }
+.mvp-chapter { min-width: 0; display: grid; gap: var(--space-12); }
+.mvp-copy { min-width: 0; display: grid; align-content: center; justify-items: start; gap: var(--space-12); }
+.mvp-copy h3 { font: var(--type-h2-medium); font-feature-settings: var(--font-features-default); }
+.mvp-number { display: inline-flex; align-items: center; gap: var(--space-4); padding: var(--space-6); border-radius: var(--radius-small); background: var(--surface-tertiary); color: var(--text-secondary); font: var(--type-label-big); line-height: 1.1; }
+.mvp-number img { display: block; }
+.mvp-description p + p { margin-top: var(--line-height-body); }
+.mvp-images { min-width: 0; display: grid; gap: var(--space-12); }
+.mvp-screen { display: block; width: 100%; height: auto; }
+@media (min-width: 64rem) {
+  .case-problems { padding-block: var(--space-48); }
+  .case-section-title { padding-block: var(--space-48); }
+  .case-profile-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; }
+  .case-profile { padding: var(--space-24) var(--space-18); gap: var(--space-24); }
+  .case-profile:not(:first-child) .case-profile-label { width: auto; text-align: left; }
+  .case-profile-intro { font: var(--type-body-big); font-feature-settings: var(--font-features-default); }
+  .case-pains { gap: var(--space-24); }
+  .case-mvp { padding-block: var(--space-64); }
+  .mvp-chapter { grid-template-columns: minmax(0, 460fr) minmax(0, 932fr); }
+  .mvp-copy { padding-inline: var(--space-32); align-self: start; }
+  .mvp-track.is-enhanced { height: var(--mvp-track-height); margin-bottom: var(--mvp-exit-space); }
+  .is-enhanced .mvp-sticky {
+    position: sticky;
+    top: var(--mvp-top);
+    display: grid;
+    grid-template-columns: minmax(0, 460fr) minmax(0, 932fr);
+    grid-template-rows: minmax(0, 1fr);
+    column-gap: var(--space-12);
+    aspect-ratio: 1404 / 685;
+    max-height: calc(100svh - 2 * var(--space-64));
+    overflow: visible;
+  }
+  .is-enhanced .mvp-chapter, .is-enhanced .mvp-images { display: contents; }
+  .is-enhanced .mvp-copy { grid-area: 1 / 1; align-self: start; margin-top: var(--mvp-copy-top, 250px); opacity: 0; pointer-events: none; }
+  .is-enhanced .mvp-screen { grid-area: 1 / 2; width: 100%; height: 100%; min-height: 0; object-fit: contain; opacity: 0; pointer-events: none; transform-origin: center top; }
+}
+
+/* V1 credits and impact only. Earlier sections and shared components are unchanged. */
+.case-credits { padding: var(--space-48) var(--space-18); background: var(--background-primary); }
+.case-credits-grid { display: grid; gap: var(--space-12); max-width: 926px; margin-inline: auto; }
+.case-credit-column { min-width: 0; display: grid; align-content: start; gap: var(--space-12); }
+.case-credit-column h2 { font: var(--type-h2-medium); font-feature-settings: var(--font-features-default); }
+.case-credit-column ul { list-style: none; padding: 0; margin: 0; }
+.case-credit-column .text-link img { flex-shrink: 0; }
+.case-impact { padding: var(--space-48) var(--space-18); background: var(--surface-secondary); }
+.case-impact-grid { display: grid; gap: var(--space-12); margin-top: var(--space-12); }
+.case-impact-card { min-width: 0; min-height: 350px; display: flex; padding: var(--space-24); background: var(--surface-tertiary); border: var(--border-width-default) solid var(--border-subtle); border-radius: var(--radius-large); }
+.case-impact-content { flex: 1; min-width: 0; padding-right: var(--space-24); display: flex; flex-direction: column; justify-content: space-between; gap: var(--space-24); }
+.case-impact-label { font: var(--type-label-big); line-height: 1.1; }
+.case-impact-card h3 { width: 246px; max-width: 100%; font: var(--type-h2-medium); font-feature-settings: var(--font-features-default); }
+@media (min-width: 48rem) {
+  .case-impact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 64rem) {
+  .case-credits { padding-block: var(--space-64); }
+  .case-credits-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+/* Four cards need enough width for the designed 25px headings and body copy. */
+@media (min-width: 80rem) {
+  .case-impact-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* Product recording, immediately before Impacto. */
+.case-video { margin: 0; }
+.case-video video { display: block; width: 100%; height: auto; aspect-ratio: 1912 / 1080; object-fit: cover; }

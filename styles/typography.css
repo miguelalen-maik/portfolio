@@ -1,0 +1,197 @@
+/* Figma: 8 levels / 16 local styles. Real local font files, no synthetic weights. */
+@font-face {
+  font-family: 'ABC Areal Variable';
+  src: url('../assets/fonts/areal-variable.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ABC Areal Mono';
+  src: url('../assets/fonts/areal-mono-regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ABC Areal Mono';
+  src: url('../assets/fonts/areal-mono-medium.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+:root {
+  --font-family-primary: 'ABC Areal Variable', sans-serif;
+  --font-family-mono: 'ABC Areal Mono', monospace;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --tracking-default: 0px;
+  --font-variations: 'DRKM' 0;
+  /* H1 target documented in Figma; body settings observed in reference nodes. */
+  --font-features-heading: 'ss01' 1, 'ss02' 1, 'ss03' 1, 'ss04' 1, 'ss05' 1, 'ss06' 1, 'ss07' 1, 'ss11' 1, 'liga' 0;
+  --font-features-body: 'ss04' 1, 'ss05' 1, 'ss06' 1, 'liga' 0, 'lnum' 1, 'tnum' 1;
+  --font-features-default: normal;
+  --font-size-h1: 54px;
+  --line-height-h1: 54px;
+  --font-size-h2: 25px;
+  --line-height-h2: 30px;
+  --font-size-h3: 16px;
+  --line-height-h3: 37.5px;
+  --font-size-body-big: 18px;
+  --line-height-body-big: 25.2px;
+  --font-size-body: 16px;
+  --line-height-body: 22.4px;
+  --font-size-body-small: 14px;
+  --line-height-body-small: 1.4;
+  --font-size-label-big: 16px;
+  --line-height-label-big: 12px;
+  --font-size-label: 12px;
+  --line-height-label: 12px;
+  /* Figma deliberately has different line heights for the H3 weights. */
+  --line-height-h3-medium: 1.2;
+  --type-h1: var(--font-weight-regular) var(--font-size-h1)/var(--line-height-h1) var(--font-family-primary);
+  --type-h1-medium: var(--font-weight-medium) var(--font-size-h1)/var(--line-height-h1) var(--font-family-primary);
+  --type-h2: var(--font-weight-regular) var(--font-size-h2)/var(--line-height-h2) var(--font-family-primary);
+  --type-h2-medium: var(--font-weight-medium) var(--font-size-h2)/var(--line-height-h2) var(--font-family-primary);
+  --type-h3: var(--font-weight-regular) var(--font-size-h3)/var(--line-height-h3) var(--font-family-primary);
+  --type-h3-medium: var(--font-weight-medium) var(--font-size-h3)/var(--line-height-h3-medium) var(--font-family-primary);
+  --type-body-big: var(--font-weight-regular) var(--font-size-body-big)/var(--line-height-body-big) var(--font-family-primary);
+  --type-body-big-medium: var(--font-weight-medium) var(--font-size-body-big)/var(--line-height-body-big) var(--font-family-primary);
+  --type-body: var(--font-weight-regular) var(--font-size-body)/var(--line-height-body) var(--font-family-primary);
+  --type-body-medium: var(--font-weight-medium) var(--font-size-body)/var(--line-height-body) var(--font-family-primary);
+  --type-body-small: var(--font-weight-regular) var(--font-size-body-small)/var(--line-height-body-small) var(--font-family-primary);
+  --type-body-small-medium: var(--font-weight-medium) var(--font-size-body-small)/var(--line-height-body-small) var(--font-family-primary);
+  --type-label-big: var(--font-weight-regular) var(--font-size-label-big)/var(--line-height-label-big) var(--font-family-mono);
+  --type-label-big-medium: var(--font-weight-medium) var(--font-size-label-big)/var(--line-height-label-big) var(--font-family-mono);
+  --type-label: var(--font-weight-regular) var(--font-size-label)/var(--line-height-label) var(--font-family-mono);
+  --type-label-medium: var(--font-weight-medium) var(--font-size-label)/var(--line-height-label) var(--font-family-mono);
+}
+
+.type-h1 {
+  font: var(--type-h1);
+  letter-spacing: var(--tracking-default);
+  font-feature-settings: var(--font-features-heading);
+  font-variation-settings: var(--font-variations);
+  font-synthesis: none;
+}
+
+.type-h1-medium {
+  font: var(--type-h1-medium);
+  letter-spacing: var(--tracking-default);
+  font-feature-settings: var(--font-features-heading);
+  font-variation-settings: var(--font-variations);
+  font-synthesis: none;
+}
+
+.type-h2 {
+  font: var(--type-h2);
+  letter-spacing: var(--tracking-default);
+  font-feature-settings: var(--font-features-default);
+  font-variation-settings: var(--font-variations);
+  font-synthesis: none;
+}
+
+.type-h2-medium {
+  font: var(--type-h2-medium);
+  letter-spacing: var(--tracking-default);
+  font-feature-settings: var(--font-features-default);
+  font-variation-settings: var(--font-variations);
+  font-synthesis: none;
+}
+
+.type-h3 {
+  font: var(--type-h3);
+  letter-spacing: var(--tracking-default);
+  font-feature-settings: var(--font-features-body);
+  font-variation-settings: var(--font-variations);
+  font-synthesis: none;
+}
+
+.type-h3-medium {
+  font: var(--type-h3-medium);
+  letter-spacing: var(--tracking-default);
+  font-feature-settings: var(--font-features-body);
+  font-variation-settings: var(--font-variations);
+  font-synthesis: none;
+}
+
+.type-body-big {
+  font: var(--type-body-big);
+  letter-spacing: var(--tracking-default);
+  font-feature-settings: var(--font-features-default);
+  font-variation-settings: var(--font-variations);
+  font-synthesis: none;
+}
+
+.type-body-big-medium {
+  font: var(--type-body-big-medium);
+  letter-spacing: var(--tracking-default);
+  font-feature-settings: var(--font-features-default);
+  font-variation-settings: var(--font-variations);
+  font-synthesis: none;
+}
+
+.type-body {
+  font: var(--type-body);
+  letter-spacing: var(--tracking-default);
+  font-feature-settings: var(--font-features-body);
+  font-variation-settings: var(--font-variations);
+  font-synthesis: none;
+}
+
+.type-body-medium {
+  font: var(--type-body-medium);
+  letter-spacing: var(--tracking-default);
+  font-feature-settings: var(--font-features-body);
+  font-variation-settings: var(--font-variations);
+  font-synthesis: none;
+}
+
+.type-body-small {
+  font: var(--type-body-small);
+  letter-spacing: var(--tracking-default);
+  font-feature-settings: var(--font-features-body);
+  font-variation-settings: var(--font-variations);
+  font-synthesis: none;
+}
+
+.type-body-small-medium {
+  font: var(--type-body-small-medium);
+  letter-spacing: var(--tracking-default);
+  font-feature-settings: var(--font-features-body);
+  font-variation-settings: var(--font-variations);
+  font-synthesis: none;
+}
+
+.type-label-big {
+  font: var(--type-label-big);
+  letter-spacing: var(--tracking-default);
+  font-feature-settings: var(--font-features-default);
+  font-variation-settings: var(--font-variations);
+  font-synthesis: none;
+}
+
+.type-label-big-medium {
+  font: var(--type-label-big-medium);
+  letter-spacing: var(--tracking-default);
+  font-feature-settings: var(--font-features-default);
+  font-variation-settings: var(--font-variations);
+  font-synthesis: none;
+}
+
+.type-label {
+  font: var(--type-label);
+  letter-spacing: var(--tracking-default);
+  font-feature-settings: var(--font-features-default);
+  font-variation-settings: var(--font-variations);
+  font-synthesis: none;
+}
+
+.type-label-medium {
+  font: var(--type-label-medium);
+  letter-spacing: var(--tracking-default);
+  font-feature-settings: var(--font-features-default);
+  font-variation-settings: var(--font-variations);
+  font-synthesis: none;
+}

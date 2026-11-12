@@ -1,0 +1,43 @@
+/* Figma: Neutrales · Tema / Claro and Oscuro. No automatic OS theme. */
+:root,
+.theme-light {
+  color-scheme: light;
+  --background-canvas: #ffffff;
+  --background-primary: #f7f7f7;
+  --background-secondary: #efefef;
+  --surface-primary: #ffffff;
+  --surface-secondary: #f7f7f7;
+  --surface-tertiary: #efefef;
+  --text-primary: #2a2a2a;
+  --text-secondary: #5e5e5e;
+  --border-subtle: #e0e0e0;
+  --border-strong: #a3a3a3;
+  --action-primary-background: #151515;
+  --action-primary-foreground: #f7f7f7;
+  --action-primary-blur-background: rgb(247 247 247 / 50%);
+  --action-primary-hover: rgb(8 8 8 / 6%);
+}
+
+.theme-dark {
+  color-scheme: dark;
+  --background-canvas: #080808;
+  --background-primary: #151515;
+  --background-secondary: #2a2a2a;
+  --surface-primary: #2a2a2a;
+  --surface-secondary: #3a3a3a;
+  --surface-tertiary: #2a2a2a;
+  --text-primary: #bfbfbf;
+  --text-secondary: #7b7b7b;
+  --border-subtle: #3a3a3a;
+  --border-strong: #7b7b7b;
+  --action-primary-background: #f7f7f7;
+  --action-primary-foreground: #151515;
+  --action-primary-blur-background: rgb(21 21 21 / 50%);
+  --action-primary-hover: rgb(255 255 255 / 6%);
+}
+
+/* Set the actual foreground at each theme boundary for inherited plain text. */
+:where(.theme-light, .theme-dark) {
+  color: var(--text-primary);
+  background-color: var(--background-primary);
+}

@@ -1,0 +1,122 @@
+/* CV-only layout. Header, footer and links reuse the existing Home stylesheet. */
+.cv-page {
+  --cv-download-height: 137px;
+  --cv-download-bottom: var(--space-16);
+  --cv-download-border: var(--background-canvas);
+}
+.cv-main { padding: 9.1px var(--layout-gutter) var(--space-64); }
+.cv-paper {
+  display: grid;
+  max-width: 1130.436px;
+  margin-inline: auto;
+  background: var(--background-canvas);
+  border-radius: var(--radius-small);
+}
+.cv-perforations { display: none; }
+.cv-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  min-width: 0;
+  padding: var(--space-24) var(--space-12);
+  background: var(--surface-primary);
+  border-radius: var(--radius-small);
+}
+.cv-layout .type-body-small,
+.cv-layout .type-body-small-medium,
+.cv-layout .type-body-big,
+.cv-layout .type-body-big-medium,
+.cv-layout .type-body-medium,
+.cv-layout .type-h3-medium { font-feature-settings: var(--font-features-default); }
+.cv-document-header { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-16); }
+.cv-badges { display: flex; gap: var(--space-6); }
+.cv-badge {
+  padding: var(--space-12);
+  min-height: 50px;
+  color: var(--action-primary-foreground);
+  background: var(--action-primary-background);
+  border-radius: var(--radius-small);
+  white-space: nowrap;
+}
+.cv-contact { font-style: normal; }
+.cv-contact-secondary { color: var(--text-secondary); }
+.cv-intro-copy { padding-left: var(--space-64); max-width: 100%; }
+.cv-intro-copy p + p { margin-top: 1.4em; }
+.cv-section { display: flex; flex-direction: column; gap: var(--space-24); }
+.cv-section-heading {
+  font: var(--type-body);
+  padding-block: var(--space-4);
+  color: var(--text-secondary);
+  border-bottom: var(--border-width-default) solid var(--border-subtle);
+}
+.cv-entry { display: grid; gap: var(--space-12); min-width: 0; }
+.cv-entry-content { display: flex; flex-direction: column; gap: var(--space-16); min-width: 0; }
+.cv-entry-copy { color: var(--text-secondary); }
+.cv-earlier-jobs { display: flex; flex-direction: column; gap: var(--space-12); }
+.cv-skills { display: grid; gap: var(--space-12) var(--space-24); }
+.cv-skill { display: flex; flex-direction: column; gap: var(--space-4); min-width: 0; }
+.cv-resource-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: var(--space-24); }
+.cv-resource-grid .cv-skill { min-height: 120px; }
+.cv-editorial-link { color: var(--text-secondary); transition: color 160ms ease; }
+.cv-editorial-link:hover,
+.cv-editorial-link:focus-visible { color: var(--text-primary); }
+.cv-resource-grid a { overflow-wrap: anywhere; }
+.cv-resource-grid a + a { margin-top: var(--space-4); }
+.cv-download {
+  position: fixed;
+  z-index: 30;
+  bottom: calc(var(--cv-download-bottom) + env(safe-area-inset-bottom, 0px));
+  right: var(--layout-gutter);
+  left: var(--layout-gutter);
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-24);
+  padding: var(--space-12);
+  border: var(--border-width-default) solid var(--cv-download-border);
+  border-radius: var(--radius-large);
+  /* The Figma card overrides the shared blur color opacity to 80%. */
+  background: rgb(from var(--action-primary-blur-background) r g b / 80%);
+  backdrop-filter: blur(calc(var(--background-blur) / 2));
+}
+.cv-download-copy { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-12); flex: 1; min-width: 0; }
+.cv-download-label { padding: var(--space-2) var(--space-6); border-radius: var(--radius-small); color: var(--text-secondary); background: var(--surface-tertiary); }
+.cv-download-description { font-feature-settings: var(--font-features-default); }
+.cv-download-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-12);
+  background: var(--action-primary-background);
+  color: var(--action-primary-foreground);
+  border-radius: var(--radius-small);
+}
+.cv-download-art { width: 111px; height: 111px; flex-shrink: 0; border-radius: 8px; object-fit: cover; background: var(--surface-primary); }
+.cv-page { padding-bottom: calc(var(--cv-download-height) + var(--cv-download-bottom) + var(--space-24) + env(safe-area-inset-bottom, 0px)); }
+@media (min-width: 48rem) {
+  .cv-skills { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .cv-download { width: 430px; left: auto; }
+}
+@media (min-width: 64rem) {
+  .cv-page { --cv-download-bottom: 20px; }
+  .cv-main { padding-top: 33.1px; }
+  .cv-paper { grid-template-columns: 47px minmax(0,1fr); }
+  .cv-perforations {
+    display: block;
+    border-right: var(--border-width-default) dashed var(--border-subtle);
+    background-image: url('../assets/images/cv/paper-holes.svg');
+    background-position: center top;
+    background-repeat: repeat-y;
+    background-size: 17.464px 244.393px;
+  }
+  .cv-layout { padding: var(--space-64); gap: var(--space-64); }
+  .cv-document-header { flex-direction: row; justify-content: space-between; }
+  .cv-contact { text-align: right; }
+  .cv-intro { padding-block: var(--space-4); }
+  .cv-intro-copy { margin-left: var(--space-128); padding-left: 0; max-width: 504px; }
+  .cv-entry { grid-template-columns: minmax(0,1fr) minmax(0,61.92%); gap: var(--space-24); }
+  .cv-skills { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .cv-skills .cv-skill { min-height: 120px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cv-editorial-link { transition: none; }
+}

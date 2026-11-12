@@ -1,0 +1,36 @@
+/* Figma: Spacing, Radius; measurements from the UI Kit and home references. */
+:root {
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-18: 18px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-128: 128px;
+
+  --radius-none: 0px;
+  --radius-small: 4px;
+  --radius-large: 16px;
+  --border-width-default: 1px;
+  --background-blur: 15px;
+
+  /* Mobile reference: 390px. Breakpoints are implementation decisions. */
+  --layout-gutter: var(--space-16);
+  --layout-gutter-compact: var(--space-12);
+  --layout-gap: var(--space-12);
+  --layout-section-space: var(--space-48);
+}
+
+/* Desktop range: 64rem (1024px at the default browser font size). */
+@media (min-width: 64rem) {
+  :root {
+    --layout-gutter: var(--space-18);
+    --layout-gutter-compact: var(--space-18);
+    --layout-section-space: var(--space-128);
+  }
+}
