@@ -72,7 +72,6 @@
 .case-profile { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-12); padding-block: var(--space-12); }
 .case-profile-image { display: block; width: 100%; height: 280px; object-fit: cover; }
 .case-profile-label { background: var(--surface-tertiary); font-weight: var(--font-weight-regular); }
-.case-profile:not(:first-child) .case-profile-label { width: 100%; text-align: center; }
 .case-profile-intro { font: var(--type-body); color: var(--text-secondary); }
 .case-pains { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--space-12); width: 100%; }
 .case-pains li { display: flex; align-items: center; gap: var(--space-12); padding-inline: var(--space-6); min-width: 0; font: var(--type-body-small); font-feature-settings: var(--font-features-default); }
@@ -93,7 +92,6 @@
   .case-section-title { padding-block: var(--space-48); }
   .case-profile-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; }
   .case-profile { padding: var(--space-24) var(--space-18); gap: var(--space-24); }
-  .case-profile:not(:first-child) .case-profile-label { width: auto; text-align: left; }
   .case-profile-intro { font: var(--type-body-big); font-feature-settings: var(--font-features-default); }
   .case-pains { gap: var(--space-24); }
   .case-mvp { padding-block: var(--space-64); }
