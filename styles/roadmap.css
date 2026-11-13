@@ -1,0 +1,103 @@
+/* Roadmap-only composition. The shared header, footer and tokens stay unchanged. */
+.roadmap-page { padding-top: 0; }
+.roadmap-window {
+  --roadmap-panel-height: 650px;
+  --roadmap-inset: var(--space-16);
+  position: relative;
+  min-width: 0;
+}
+.roadmap-scroll {
+  width: 100%;
+  height: var(--roadmap-panel-height);
+  padding-top: calc((var(--roadmap-panel-height) - 400px) / 2);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: auto;
+  scrollbar-width: auto;
+}
+.roadmap-scroll::-webkit-scrollbar { height: var(--space-12); background: var(--surface-tertiary); }
+.roadmap-scroll::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border: var(--space-2) solid var(--surface-tertiary);
+  border-radius: var(--radius-large);
+}
+.roadmap-scroll:focus-visible { outline-offset: -4px; }
+.roadmap-track {
+  width: calc(10300px + 2 * var(--roadmap-inset));
+  padding-inline: var(--roadmap-inset);
+}
+.roadmap-board {
+  position: relative;
+  width: 10300px;
+  height: 478px; /* Includes the lowest curves below the 400px node composition. */
+  color: var(--text-primary);
+  font: var(--type-label-big);
+  line-height: 1.1;
+  font-feature-settings: var(--font-features-default);
+}
+.roadmap-nodes { margin: 0; padding: 0; list-style: none; }
+.roadmap-node {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding-inline: var(--space-6);
+  font: inherit;
+  white-space: pre;
+}
+.roadmap-node::before {
+  content: '';
+  flex: 0 0 var(--space-8);
+  width: var(--space-8);
+  height: var(--space-8);
+  border: var(--border-width-default) solid currentColor;
+}
+.roadmap-node[data-state="done"]::before { background: currentColor; }
+.roadmap-connections { position: absolute; inset: 0; pointer-events: none; }
+.roadmap-connections svg { position: absolute; overflow: visible; }
+.roadmap-metrics {
+  position: absolute;
+  width: 233px;
+  display: flex;
+  gap: var(--space-12);
+  padding-top: var(--space-24);
+  border-top: var(--border-width-default) solid currentColor;
+}
+.roadmap-metric { width: 37px; flex-shrink: 0; text-align: center; }
+.roadmap-score { position: relative; width: 37px; height: 37px; }
+.roadmap-score img { display: block; }
+.roadmap-score span {
+  position: absolute;
+  inset: 13px 0 auto;
+  font: var(--type-label);
+}
+.roadmap-metric-label {
+  display: block;
+  margin-top: var(--space-4);
+  font: var(--type-label);
+  font-size: 9px; /* Figma indicator captions, scoped to this diagram. */
+}
+.roadmap-fade {
+  position: absolute;
+  top: 69px;
+  bottom: var(--space-18); /* Keep the native scrollbar usable. */
+  width: 120px;
+  pointer-events: none;
+  opacity: 0;
+}
+.roadmap-fade--start {
+  left: 0;
+  background: linear-gradient(to right, var(--background-primary), transparent);
+}
+.roadmap-fade--end {
+  right: 0;
+  background: linear-gradient(to right, transparent, var(--background-primary));
+}
+.roadmap-window[data-left] .roadmap-fade--start,
+.roadmap-window[data-right] .roadmap-fade--end { opacity: 1; }
+@media (min-width: 64rem) {
+  .roadmap-window {
+    --roadmap-panel-height: max(650px, 100svh);
+    --roadmap-inset: calc(var(--space-48) * 2);
+  }
+}
