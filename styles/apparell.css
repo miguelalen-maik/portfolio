@@ -123,7 +123,7 @@
 .case-credit-column .text-link img { flex-shrink: 0; }
 .case-impact { padding: var(--space-48) var(--space-18); background: var(--surface-secondary); }
 .case-impact-grid { display: grid; gap: var(--space-12); margin-top: var(--space-12); }
-.case-impact-card { min-width: 0; min-height: 350px; display: flex; padding: var(--space-24); background: var(--surface-tertiary); border: var(--border-width-default) solid var(--border-subtle); border-radius: var(--radius-large); }
+.case-impact-card { min-width: 0; min-height: 350px; display: flex; padding: var(--space-24); background: var(--surface-tertiary); border: none; border-radius: var(--radius-large); }
 .case-impact-content { flex: 1; min-width: 0; padding-right: var(--space-24); display: flex; flex-direction: column; justify-content: space-between; gap: var(--space-24); }
 .case-impact-label { font: var(--type-label-big); line-height: 1.1; }
 .case-impact-card h3 { width: 246px; max-width: 100%; font: var(--type-h2-medium); font-feature-settings: var(--font-features-default); }
